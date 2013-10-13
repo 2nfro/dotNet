@@ -1,13 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "core\Core.csproj", "{1F60FAD7-EFCB-4D57-87E9-93FCB09978DC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{20E4E424-AE47-4635-B74F-4EB464665D8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apps.Core", "Apps.Core\Apps.Core.csproj", "{414F772D-C321-4AA6-B835-BBF9C8860D40}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Core", "Serivices.Core\Services.Core.csproj", "{236B0C28-29B9-4412-9642-48744EEBD76D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.App", "Services.App\Services.App.csproj", "{5DDBEFE1-45A6-472C-BA35-DD49B228BC5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{B408D6F5-7B0D-4FEC-95C2-3FA9A8620259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Android", "App\Android\App.Android.csproj", "{B17D13A5-BE46-4BFC-A790-E48345D1CF4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Core", "App\Core\App.Core.csproj", "{8D98BCA0-7BEF-4A1F-AA55-1DD84E9BC876}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,22 +19,73 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1F60FAD7-EFCB-4D57-87E9-93FCB09978DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F60FAD7-EFCB-4D57-87E9-93FCB09978DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F60FAD7-EFCB-4D57-87E9-93FCB09978DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F60FAD7-EFCB-4D57-87E9-93FCB09978DC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{20E4E424-AE47-4635-B74F-4EB464665D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{20E4E424-AE47-4635-B74F-4EB464665D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20E4E424-AE47-4635-B74F-4EB464665D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20E4E424-AE47-4635-B74F-4EB464665D8A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{414F772D-C321-4AA6-B835-BBF9C8860D40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{414F772D-C321-4AA6-B835-BBF9C8860D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{414F772D-C321-4AA6-B835-BBF9C8860D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{414F772D-C321-4AA6-B835-BBF9C8860D40}.Release|Any CPU.Build.0 = Release|Any CPU
 		{236B0C28-29B9-4412-9642-48744EEBD76D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{236B0C28-29B9-4412-9642-48744EEBD76D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{236B0C28-29B9-4412-9642-48744EEBD76D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{236B0C28-29B9-4412-9642-48744EEBD76D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DDBEFE1-45A6-472C-BA35-DD49B228BC5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DDBEFE1-45A6-472C-BA35-DD49B228BC5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DDBEFE1-45A6-472C-BA35-DD49B228BC5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DDBEFE1-45A6-472C-BA35-DD49B228BC5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D98BCA0-7BEF-4A1F-AA55-1DD84E9BC876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D98BCA0-7BEF-4A1F-AA55-1DD84E9BC876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D98BCA0-7BEF-4A1F-AA55-1DD84E9BC876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D98BCA0-7BEF-4A1F-AA55-1DD84E9BC876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B17D13A5-BE46-4BFC-A790-E48345D1CF4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B17D13A5-BE46-4BFC-A790-E48345D1CF4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B17D13A5-BE46-4BFC-A790-E48345D1CF4A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B17D13A5-BE46-4BFC-A790-E48345D1CF4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B17D13A5-BE46-4BFC-A790-E48345D1CF4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B17D13A5-BE46-4BFC-A790-E48345D1CF4A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B408D6F5-7B0D-4FEC-95C2-3FA9A8620259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B408D6F5-7B0D-4FEC-95C2-3FA9A8620259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B408D6F5-7B0D-4FEC-95C2-3FA9A8620259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B408D6F5-7B0D-4FEC-95C2-3FA9A8620259}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = App\Android\App.Android.csproj
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$1.ResourceNamePolicy = FileFormatDefault
+		$0.TextStylePolicy = $2
+		$2.FileWidth = 120
+		$2.EolMarker = Unix
+		$2.inheritsSet = VisualStudio
+		$2.inheritsScope = text/plain
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.IndentSwitchBody = True
+		$3.AlignEmbeddedUsingStatements = False
+		$3.AlignEmbeddedIfStatements = False
+		$3.NamespaceBraceStyle = EndOfLine
+		$3.ClassBraceStyle = EndOfLine
+		$3.InterfaceBraceStyle = EndOfLine
+		$3.StructBraceStyle = EndOfLine
+		$3.EnumBraceStyle = EndOfLine
+		$3.MethodBraceStyle = EndOfLine
+		$3.ConstructorBraceStyle = EndOfLine
+		$3.DestructorBraceStyle = EndOfLine
+		$3.ElseNewLinePlacement = NewLine
+		$3.CatchNewLinePlacement = NewLine
+		$3.FinallyNewLinePlacement = NewLine
+		$3.WhileNewLinePlacement = NewLine
+		$3.BeforeMethodDeclarationParentheses = False
+		$3.BeforeMethodCallParentheses = False
+		$3.BeforeConstructorDeclarationParentheses = False
+		$3.BeforeDelegateDeclarationParentheses = False
+		$3.NewParentheses = False
+		$3.SpacesBeforeBrackets = False
+		$3.inheritsSet = Mono
+		$3.inheritsScope = text/x-csharp
+		$3.scope = text/x-csharp
+		$0.StandardHeader = $4
+		$4.Text = 
+		$4.IncludeInNewFiles = True
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

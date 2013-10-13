@@ -12,14 +12,13 @@ namespace Nfro.Services.Core {
     /// <summary>
     /// Summary description for CoreService
     /// </summary>
-    [WebService(Namespace = NAMESPACE)]
+    [WebService(Namespace = "http://localhost.com/services")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
     public class CoreService: System.Web.Services.WebService {
 
-        public static readonly String NAMESPACE = "http://localhost.com/services";
         private static String TOKEN_INVALID_STRING = "Your login token is invalid.";
 
         protected Boolean isValidToken(int userId, String token) {

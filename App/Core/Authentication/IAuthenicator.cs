@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Nfro.Services.App.Authentication {
+namespace Nfro.App.Core.Authentication {
     public interface IAuthenicator {
-        public void BeginProcess();
+        void BeginProcess();
     }
 }

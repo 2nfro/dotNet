@@ -1,87 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1F60FAD7-EFCB-4D57-87E9-93FCB09978DC}</ProjectGuid>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B408D6F5-7B0D-4FEC-95C2-3FA9A8620259}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nfro.Core</RootNamespace>
-    <AssemblyName>Nfro.Core</AssemblyName>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Security" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\PetaPoco.cs" />
-    <Compile Include="Objects\Business\AppInfo.cs" />
-    <Compile Include="Objects\Business\Token.cs" />
-    <Compile Include="Objects\DataConversions.cs" />
-    <Compile Include="Objects\DataEnums.cs" />
-    <Compile Include="Objects\Data\AppRow.cs" />
-    <Compile Include="Objects\Data\UserCodeRow.cs" />
-    <Compile Include="Objects\Data\UserRow.cs" />
-    <Compile Include="Objects\Business\UserCode.cs" />
-    <Compile Include="Objects\Business\UserInfo.cs" />
-    <Compile Include="Objects\Data\TokenRow.cs" />
-    <Compile Include="Objects\Results\ObjectValueResult.cs" />
-    <Compile Include="Objects\Results\Result.cs" />
-    <Compile Include="Objects\Results\TokenValueResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\AppProvider.cs" />
-    <Compile Include="Providers\DataProvider.cs" />
-    <Compile Include="Providers\TokenProvider.cs" />
-    <Compile Include="Providers\UserCodeProvider.cs" />
-    <Compile Include="Providers\UserProvider.cs" />
     <Compile Include="Security\AES.cs" />
     <Compile Include="Security\TokenGenerator.cs" />
     <Compile Include="Security\UserCodeGenerator.cs" />
+    <Compile Include="Objects\DataEnums.cs" />
+    <Compile Include="Objects\Business\AppInfo.cs" />
+    <Compile Include="Objects\Business\Token.cs" />
+    <Compile Include="Objects\Business\UserAppInfo.cs" />
+    <Compile Include="Objects\Business\UserCode.cs" />
+    <Compile Include="Objects\Business\UserInfo.cs" />
+    <Compile Include="Objects\Results\ObjectValueResult.cs" />
+    <Compile Include="Objects\Results\Result.cs" />
+    <Compile Include="Objects\Results\TokenValueResult.cs" />
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Content Include="Models\Deltas\000001.sql" />
-    <Content Include="Models\Deltas\000002.sql" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Models\Deltas\000000.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
