@@ -7,10 +7,10 @@ using Nfro.Core.Objects.Business;
 
 namespace Nfro.App.Core.Providers.Cached {
     public interface ICachedUserInfoProvider {
-        bool isUserInfoPersisted();
+        bool IsUserInfoPersisted();
 
-        void saveUserInfo(UserInfo userInfo);
+        void SaveUserInfo(UserInfo userInfo);
 
-        UserInfo getUserInfo();
+        UserInfo GetUserInfo();
     }
 }

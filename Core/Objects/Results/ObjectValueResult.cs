@@ -10,6 +10,11 @@ namespace Nfro.Core.Objects.Results {
     public class ObjectValueResult : Result {
         public readonly Object Value;
 
+        public ObjectValueResult(): base (true) {
+            Value = null;
+            Errors = new String[0];
+        }
+
         public ObjectValueResult(Object value) : base(true) {
             Value = value;
         }

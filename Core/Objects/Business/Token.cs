@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Nfro.Core.Objects.Business {
+    [Serializable]
     public class Token {
         public String TokenString { get; set; }
         public DateTime DateExpires { get; set; }

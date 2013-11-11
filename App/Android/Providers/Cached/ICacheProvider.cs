@@ -14,19 +14,23 @@ using System.Runtime.Serialization.Formatters.Binary;
 using Java.Nio.Channels;
 using Java.Net;
 using Android.Webkit;
+using AndroidOs = Android.OS;
 
 namespace Nfro.App.Android.Providers.Cached {
-	public abstract class ICacheProvider : Application {
+	public abstract class ICacheProvider {
 
         protected enum Storage{
             FILES, CACHE
         }
 
+        protected String FILES_DIR{ get { return Application.Context.FilesDir.AbsolutePath; } }
+        protected String CACHE_DIR{ get { return Application.Context.CacheDir.AbsolutePath; } }
+
         private void Save(String directory, String fileName, Object data){
             StreamWriter stream = null;
             try{
                 String path = Path.Combine (directory, fileName);
-                stream = new StreamWriter(OpenFileOutput(path, FileCreationMode.Private));
+                stream = new StreamWriter(path);
                 BinaryFormatter formatter = new BinaryFormatter();
                 formatter.Serialize(stream.BaseStream, data);
             }
@@ -44,7 +48,7 @@ namespace Nfro.App.Android.Providers.Cached {
             StreamReader stream = null;
             try{
                 String path = Path.Combine (directory, fileName);
-                stream = new StreamReader(OpenFileInput (path));
+                stream = new StreamReader(path);
                 IFormatter formatter = new BinaryFormatter();
                 return formatter.Deserialize (stream.BaseStream);
             }
@@ -59,21 +63,21 @@ namespace Nfro.App.Android.Providers.Cached {
             }
         }
 
-        protected bool isDataPersisted(String fileName, Storage storageType){
+        protected bool IsDataPersisted(String fileName, Storage storageType){
             switch(storageType){
                 case Storage.CACHE:
-                    return File.Exists(Path.Combine(CacheDir.AbsolutePath, fileName));
+                    return File.Exists(Path.Combine(CACHE_DIR, fileName));
                 default:
-                    return File.Exists(Path.Combine(FilesDir.AbsolutePath, fileName));
+                    return File.Exists(Path.Combine(FILES_DIR, fileName));
             }
         }
 
 		protected void SaveInCahce(String fileName, Object data){
-            Save(CacheDir.AbsolutePath, fileName, data);
+            Save(CACHE_DIR, fileName, data);
 		}
 
 		protected void Save(String fileName, Object data){
-            Save(FilesDir.AbsolutePath, fileName, data);
+            Save(FILES_DIR, fileName, data);
 		}
 
 		protected void SaveEncrypted(String fileName, Object data){
@@ -81,11 +85,11 @@ namespace Nfro.App.Android.Providers.Cached {
 		}
 
 		protected Object ReadFromCache(String fileName){
-            return Read(CacheDir.AbsolutePath, fileName);
+            return Read(CACHE_DIR, fileName);
 		}
 
 		protected Object Read(String fileName){
-            return Read(FilesDir.AbsolutePath, fileName);
+            return Read(FILES_DIR, fileName);
 		}
 
 		protected Object ReadEncrypted(String fileName){

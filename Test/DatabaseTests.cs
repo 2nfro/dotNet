@@ -15,7 +15,7 @@ namespace Test {
 
         private String connection;
         private PetaPoco.Database db;
-        private readonly String deltaFolder = "..\\..\\..\\Core\\Models\\Deltas\\";
+        private readonly String deltaFolder = "..\\..\\..\\Services.Core\\Models\\Deltas\\";
 
         [TestFixtureSetUp]
         public void Init() {
@@ -29,6 +29,12 @@ namespace Test {
             AssertTableExists("tbUser");
             AssertTableExists("tbToken");
             AssertTableExists("tbUserCode");
+            AssertTableExists("tbDevice");
+            AssertTableExists("tbApp"); 
+            AssertTableExists("tbAppSettings"); 
+            AssertTableExists("tbUserApp"); 
+            AssertTableExists("tbAppToken"); 
+            AssertTableExists("tbUserAppSettings");
         }
 
         private void AssertTableExists(String tableName) {

@@ -9,22 +9,30 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using App.Android;
+using Nfro.App.Android;
 using Nfro.App.Core.View;
+using Nfro.App.Android.Task;
+using Nfro.App.Core.Task;
 
 namespace Nfro.App.Android.View {
-    [Activity(Label = "LoginActivity")]
-    public class LoginActivity: BaseActivity, ILoginView {
+    [Activity]
+    public class LoginActivity: BaseActivity, IAndroidLoginView {
         private EditText emailTextBox;
         private EditText passwordTextBox;
         private Button loginButton;
 
-        String Nfro.App.Core.View.ILoginView.GetPassword(){
+        public String GetPassword(){
+            return passwordTextBox.Text ?? "";
+        }
+
+        public String GetEmailAddress(){
             return emailTextBox.Text ?? "";
         }
 
-        String Nfro.App.Core.View.ILoginView.GetEmailAddress(){
-            return passwordTextBox.Text ?? "";
+        public void ToMain() {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+            Finish();
         }
 
         protected override void OnCreate(Bundle bundle) {
@@ -35,6 +43,10 @@ namespace Nfro.App.Android.View {
             passwordTextBox = FindViewById<EditText>(Resource.Id.passwordText);
             loginButton = FindViewById<Button>(Resource.Id.loginButon);
 
+            loginButton.Click += (object sender, EventArgs e) => {
+                ILoginTask task = new LoginTask(this);
+                task.Authenticate();
+            };
         }
 
     }

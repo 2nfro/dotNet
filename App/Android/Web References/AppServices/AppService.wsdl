@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http:/localhost/NfroServer/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http:/localhost/NfroServer/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http:/localhost/NfroServer/">
+      <s:element name="GetAppInfos">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAppInfosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppInfosResult" type="tns:ArrayOfAppInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAppInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AppInfo" nillable="true" type="tns:AppInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AppInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AppType" type="tns:AppType" />
+          <s:element minOccurs="0" maxOccurs="1" name="AppName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AppType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="GooglePlus" />
+          <s:enumeration value="Twitter" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CreateUserApp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="tns:Token" />
+            <s:element minOccurs="1" maxOccurs="1" name="appType" type="tns:AppType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Token">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TokenString" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateExpires" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeviceType" type="tns:Device" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Device">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Web" />
+          <s:enumeration value="Desktop" />
+          <s:enumeration value="iPhone" />
+          <s:enumeration value="Android" />
+          <s:enumeration value="Windows" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CreateUserAppResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateUserAppResult" type="tns:ObjectValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObjectValueResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Result">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAppInfosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppInfos" />
+  </wsdl:message>
+  <wsdl:message name="GetAppInfosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserAppSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateUserApp" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserAppSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateUserAppResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AppServiceSoap">
+    <wsdl:operation name="GetAppInfos">
+      <wsdl:input message="tns:GetAppInfosSoapIn" />
+      <wsdl:output message="tns:GetAppInfosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserApp">
+      <wsdl:input message="tns:CreateUserAppSoapIn" />
+      <wsdl:output message="tns:CreateUserAppSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AppServiceSoap" type="tns:AppServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAppInfos">
+      <soap:operation soapAction="http:/localhost/NfroServer/GetAppInfos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserApp">
+      <soap:operation soapAction="http:/localhost/NfroServer/CreateUserApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AppServiceSoap12" type="tns:AppServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAppInfos">
+      <soap12:operation soapAction="http:/localhost/NfroServer/GetAppInfos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserApp">
+      <soap12:operation soapAction="http:/localhost/NfroServer/CreateUserApp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AppService">
+    <wsdl:port name="AppServiceSoap" binding="tns:AppServiceSoap">
+      <soap:address location="http://localhost/NfroServer/AppService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AppServiceSoap12" binding="tns:AppServiceSoap12">
+      <soap12:address location="http://localhost/NfroServer/AppService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

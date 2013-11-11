@@ -11,11 +11,11 @@ using SimpleOAuth;
 
 namespace Nfro.Services.App.Authentication {
     public abstract class IOAuthenticator{
-        protected String consumerKey { get; }
-        protected String consumerSecret { get; }
-        protected String requestUrl { get; }
-        protected String authorizeUrl { get; }
-        protected String callback { get; }
+        protected abstract String consumerKey { get; }
+        protected abstract String consumerSecret { get; }
+        protected abstract String requestUrl { get; }
+        protected abstract String authorizeUrl { get; }
+        protected abstract String callback { get; }
         
         public String GetRequestURL() {
             try {

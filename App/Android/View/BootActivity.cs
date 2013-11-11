@@ -12,7 +12,7 @@ using Nfro.Core.Objects.Business;
 using Nfro.App.Android.Providers.Cached;
 
 namespace Nfro.App.Android.View {
-    [Activity (Label = "BootActivity", MainLauncher = true)]	
+    [Activity (MainLauncher = true)]	
     public class BootActivity : BaseActivity {
         protected override void OnCreate(Bundle bundle) {
             base.OnCreate(bundle);
